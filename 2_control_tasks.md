@@ -95,9 +95,7 @@ Jinja2 Templates and Control Structures
 # control structure for build an /etc/hosts jinja2 template from all hosts in inventory
 
 {% for host in groups['all'] %}
-
-{{ hostvars[host]['ansible_facts']['default_ipv4']['address']}} {{ hostvars[host]['ansible_facts']['fqdn'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
-
+{{ ansible_default_ipv4.address }} {{ ansible_fqdn }} {{ ansible_hostname }}
 {% endfor %}
 ```
 > N.B. Use ansible_managed = "Managed by Ansible" as a variable in ansible.cfg and include the variable {{ansible_managed}} in a template to inform users the file is managed by ansible.
