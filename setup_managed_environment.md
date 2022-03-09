@@ -18,7 +18,7 @@ pip3 install ansible --user
 ```shell
 # ansible install with subscription-manager
 subscription-manager repos --list
-subscription-manager repos --enable *ansible-2.9-for-rhel-8-x86_64-rpms*
+subscription-manager repos --enable <em>ansible-2.9-for-rhel-8-x86_64-rpms</em>
 yum install -y ansible
 ```
 
