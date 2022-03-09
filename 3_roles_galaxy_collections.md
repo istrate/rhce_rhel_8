@@ -35,3 +35,22 @@ project_dir/
     inventory <-- custom inventory file
     site.yml <-- master playbook
 ```
+Ansible Galaxy Roles
+```shell
+# search galaxy for roles
+ansible-galaxy search <search_term> --author --platforms EL --galaxy-tags
+
+# install/remove galaxy role
+ansible-galaxy install <role.name>
+ansible-galaxy remove <role.name>
+```
+```shell
+# build custom role
+ansible-galaxy init <name>
+
+# be mindful of role precedence when roles are called from master playbook
+    ./roles <-- project roles
+    ~/.ansilbe/roles <-- current profile roles (preferred location)
+    /etc/ansible/roles
+    /usr/share/ansible/roles
+```
