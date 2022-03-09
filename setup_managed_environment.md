@@ -54,6 +54,10 @@ node1.example.com
 node2.example.com
 node3.example.com
 ```
+```shell
+# test inventory
+ansible -i all --list-hosts
+```
 Write playbook to set up managed nodes
 ```shell
 ~/setup_managed_nodes.yml
