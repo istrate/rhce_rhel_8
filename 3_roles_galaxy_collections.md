@@ -101,3 +101,17 @@ collections:
 # to install collections from requirements.yml
 ansible-galaxy collection install -r requirements.yml
 ```
+```shell
+# include installed collections in playbook header as required
+
+---
+- name: example playbook
+  hosts: localhost
+  gather_facts: no
+  collections:
+  - ansible.posix
+  tasks:
+  - name
+    selinux:
+...etc...
+```
