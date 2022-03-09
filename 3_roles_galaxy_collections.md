@@ -72,7 +72,7 @@ ansible-galaxy install -r requirements.yml -p <install_path>
 ```
 Dependencies
 ```shell
-# role dependencies listed in ./meta/main.yml in same format as requirements
+# role dependencies defined in ./meta/main.yml in same format as requirements
 ---
 dependencies
 - src: geerlingguy.nginx
@@ -85,5 +85,19 @@ galaxy_info:
 ```
 Collections
 ```shell
-
+# can be defined in same requirements.yml file as roles.
+---
+roles:
+  - src: geerlingguy.nginx
+collections
+  - name: ansible.posix
+  - name: f5networks.f5_modules
+    source: https://cloud.redhat.com/api/automation-hub/
+  - name: community.vmware
+  - name: ansible.netcommon
+    source: https://galaxy.ansible.com
+```
+```shell
+# to install collections from requirements.yml
+ansible-galaxy collection install -r requirements.yml
 ```
