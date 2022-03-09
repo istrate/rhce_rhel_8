@@ -56,7 +56,7 @@ Role Precedence
 ```
 Requirements
 ```shell
-roles/requirements.yml
+requirements.yml
 
 ---
 - src: geerlingguy.nginx
@@ -68,5 +68,22 @@ roles/requirements.yml
 ```
 ```shell
 # to install roles from requirements.yml
-ansible-galaxy install -r requirements.yml
+ansible-galaxy install -r requirements.yml -p <install_path>
+```
+Dependencies
+```shell
+# role dependencies listed in ./meta/main.yml in same format as requirements
+---
+dependencies
+- src: geerlingguy.nginx
+- src: ile:///opt/local/roles/myrole.tar
+  name: myrole
+  version: 1.0.0
+
+galaxy_info:
+...etc...
+```
+Collections
+```shell
+
 ```
