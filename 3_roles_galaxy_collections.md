@@ -89,13 +89,13 @@ Collections
 ---
 roles:
   - src: geerlingguy.nginx
-collections
+collections:
   - name: ansible.posix
   - name: f5networks.f5_modules
-    source: https://cloud.redhat.com/api/automation-hub/
+    src: https://cloud.redhat.com/api/automation-hub/
   - name: community.vmware
   - name: ansible.netcommon
-    source: https://galaxy.ansible.com
+    src: https://galaxy.ansible.com
 ```
 ```shell
 # to install collections from requirements.yml
