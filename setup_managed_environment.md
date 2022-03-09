@@ -3,7 +3,7 @@
 All actions are carried out on the control node.<br>
 There should be no need to access a console on any managed node unless root password in unknown.
 
-Create ansible user and install Python
+Add ansible user, config sudo, install Python
 ```shell
 useradd ansible
 echo "password" | passwd --stdin ansible
@@ -72,7 +72,6 @@ Write and run playbook to set up managed nodes
   tasks:
   - raw: |
       useradd ansible;
-      touch /etc/sudoers.d/ansible;
       echo -e "ansible\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/ansible;
       yum install -y python3;
       alternatives --set python /usr/bin/python3
