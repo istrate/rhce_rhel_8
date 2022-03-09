@@ -23,6 +23,10 @@ subscription-manager repos --list
 subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
 yum install -y ansible
 ```
+```shell
+# verifiy installation
+ansible --version
+```
 
 > now configure /etc/hosts for name resolution of managed nodes
 
