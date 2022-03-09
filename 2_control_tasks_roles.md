@@ -63,3 +63,30 @@ block:
 rescue:
 always:
 ```
+SELinux File Context
+```shell
+~/sefcontext_example.yml
+
+---
+- name: show selinux
+  hosts: all
+  tasks:
+  - name: install required packages
+    yum:
+      name: policycoreutils-python-utils
+      state: present
+  - name: set selinux context
+    sefcontext:
+      target: /tmp/testdir
+      setype: tmp_t
+      state: present
+    notify:
+      - run restorecon
+  handlers:
+  - name: run restorecon
+    command: restorecon -vR /tmp/testdir
+```
+```shell
+# verify result with adhoc play
+ansible all -a "ls -lZ /tmp/testdir"
+```
