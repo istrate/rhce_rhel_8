@@ -1,6 +1,7 @@
 # Set Up Managed Environment
 
-## On Control Node
+#### All actions are carried out on the control node. There should be no need to gain access to a console on any of the managed nodes.
+
 Create ansible user and install Python
 ```shell
 useradd ansible
