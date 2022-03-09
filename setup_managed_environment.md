@@ -11,11 +11,12 @@ yum install -y python3 python3-pip
 alternatives --set python /usr/bin/python3
 su - ansible
 ```
-Install Ansible (with pip or subscription-manager method)
+Install Ansible
 ```shell
 # with pip
 pip3 install ansible --user
 ```
+or
 ```shell
 # with subscription-manager
 subscription-manager repos --list
@@ -25,7 +26,7 @@ yum install -y ansible
 
 > now configure /etc/hosts for name resolution of managed nodes
 
-[optional] Configure tab spacing for yaml on vim
+Configure tab spacing on vim when editing yaml (optional)
 ```shell
 touch ~/.vimrc
 echo "autocmd FileType yaml setlocal ai ts=2 sw=2 et" > ~/.vimrc
