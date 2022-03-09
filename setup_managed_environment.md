@@ -55,8 +55,8 @@ node2.example.com
 node3.example.com
 ```
 ```shell
-# test inventory
-ansible -i all --list-hosts
+# verify default inventory is working
+ansible all --list-hosts
 ```
 Write playbook to set up managed nodes
 ```shell
