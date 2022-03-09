@@ -15,15 +15,12 @@ Install Ansible
 ```shell
 # with pip
 pip3 install ansible --user
-```
-or
-```shell
+
 # with subscription-manager
 subscription-manager repos --list
 subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
 yum install -y ansible
-```
-```shell
+
 # verifiy installation
 ansible --version
 ```
