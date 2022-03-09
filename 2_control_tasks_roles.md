@@ -19,13 +19,13 @@ Ansible Vault
 ```shell
 # command line switches
 --ask-vault-pass 
---valut-password-file=<path>
+--vault-password-file=<path>
 
 # vault password file variable
 # ensure file is protected ie. chmod 600
 vault-password-file: <path>
 ```
-Custom Local Facts
+Custom Local Facts (on managed node)
 ```shell
 /etc/ansible/facts.d/<name>.fact
 
@@ -38,4 +38,22 @@ var2: value
 # addressing a local fact variable
 ansible_local.<name>.<fact_name>.var1
 ```
-
+Error Handling
+```shell
+ignore_errors: yes
+force_handlers: yes
+failed_when: <conditional>
+```
+```shell
+# fail module example
+- name: print error message
+  fail:
+    msg: the task failed because.....
+  when: "'condition' in registered_var.err"
+```
+```shell
+# using blocks
+block:
+rescue:
+always:
+```
