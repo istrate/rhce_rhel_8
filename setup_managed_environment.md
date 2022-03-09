@@ -60,7 +60,7 @@ node3.example.com
 # verify default inventory is working
 ansible all --list-hosts
 ```
-Write playbook to set up managed nodes
+Write and run playbook to set up managed nodes
 ```shell
 ~/setup_managed_nodes.yml
 
@@ -76,8 +76,8 @@ Write playbook to set up managed nodes
       yum install -y python3;
       alternatives --set python /usr/bin/python3
 ```
-Run playbook
 ```shell
+# run playbook
 ansible-playbook --user=root --ask-pass setup_managed_nodes.yml
 ```
 Generate and copy SSH key to managed nodes
