@@ -82,7 +82,7 @@ Write and run playbook to set up managed nodes
 # run playbook
 ansible-playbook --user=root --ask-pass setup_managed_nodes.yml
 ```
-Generate and copy SSH key to managed nodes
+Generate SSH keys and copy key to managed nodes
 ```shell
 su - ansible
 ssh-keygen
