@@ -37,12 +37,11 @@ project_dir/
 ```
 Ansible Galaxy Roles
 ```shell
-# search galaxy for roles
 ansible-galaxy search <search_term> --author --platforms EL --galaxy-tags
-
-# install/remove galaxy role
-ansible-galaxy install <role.name>,<optional_version>
+ansible-galaxy info <role.name>
+ansible-galaxy install <role.name>,<version>
 ansible-galaxy remove <role.name>
+ansible-galaxy list
 ```
 ```shell
 # build custom role
@@ -54,4 +53,20 @@ Role Precedence
     ~/.ansible/roles <-- default location for galaxy installed roles, put custom roles here if used in multiple projects
     /etc/ansible/roles
     /usr/share/ansible/roles
+```
+Requirements
+```shell
+roles/requirements.yml
+
+---
+- src: geerlingguy.nginx
+  name: nginx
+  version: 1.1.3
+- src: file:///opt/local/roles/myrole.tar
+  name: myrole
+  version: 1.0.0
+```
+```shell
+# to install roles from requirements.yml
+ansible-galaxy install -r requirements.yml
 ```
