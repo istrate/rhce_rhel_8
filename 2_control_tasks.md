@@ -92,7 +92,7 @@ ansible all -a "ls -lZ /tmp/testdir"
 ```
 Jinja2 Templates and Control Structures
 ```shell
-# control structure for build an /etc/hosts jinja2 template from all hosts in inventory
+# control structure helps build an /etc/hosts jinja2 template from all hosts in inventory
 
 {% for host in groups['all'] %}
 {{ ansible_default_ipv4.address }} {{ ansible_fqdn }} {{ ansible_hostname }}
