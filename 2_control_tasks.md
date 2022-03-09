@@ -100,5 +100,5 @@ Jinja2 Templates and Control Structures
 
 {% endfor %}
 ```
-> N.B. Use ansible_managed = "Managed by Ansible" as a variable in ansible.cfg and include the variable {{ansible_managed}} in a template to inform uses the file is managed by ansible.
+> N.B. Use ansible_managed = "Managed by Ansible" as a variable in ansible.cfg and include the variable {{ansible_managed}} in a template to inform users the file is managed by ansible.
 
