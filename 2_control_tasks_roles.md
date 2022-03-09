@@ -38,10 +38,16 @@ var2: value
 # addressing a local fact variable
 ansible_local.<name>.<fact_name>.var1
 ```
+Handlers
+```shell
+notify: <handler_task> #notify a handler to run at end of current play
+changed_when: <condition> #allow handler to run when normally it wouldn't
+force_handlers: yes #forces a notified handler to run even if another task fails
+- meta: flush_handlers #runs notified handlers before end of current play
+```
 Error Handling
 ```shell
 ignore_errors: yes
-force_handlers: yes
 failed_when: <conditional>
 ```
 ```shell
