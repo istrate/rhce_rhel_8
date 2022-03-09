@@ -1,6 +1,7 @@
 # Set Up Managed Environment
 
-#### All actions are carried out on the control node. There should be no need to gain access to a console on any of the managed nodes.
+All actions are carried out on the control node.
+There should be no need to gain access to a console on any of the managed nodes unless root password in unknown.
 
 Create ansible user and install Python
 ```shell
