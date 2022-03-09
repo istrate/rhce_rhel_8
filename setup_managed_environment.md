@@ -85,7 +85,7 @@ Generate and copy SSH key to managed nodes
 su - ansible
 ssh-keygen
 ### do not use a passphrase ###
-ssh-copy-id node1
+ssh-copy-id node1.example.com
 ...etc...
 ```
 Run adhoc ping test
