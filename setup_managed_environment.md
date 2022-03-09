@@ -7,7 +7,7 @@ useradd ansible
 echo "password" | passwd --stdin ansible
 echo -e "ansible\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/ansible
 yum install -y python3 python3-pip
-alternatives --set python /usr/bin/python
+alternatives --set python /usr/bin/python3
 su - ansible
 ```
 Install Ansible
@@ -18,10 +18,11 @@ pip3 install ansible --user
 ```shell
 # ansible install with subscription-manager
 subscription-manager repos --list
-subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
+subscription-manager repos --enable *ansible-2.9-for-rhel-8-x86_64-rpms*
 yum install -y ansible
 ```
-Configure /etc/hosts for name resolution of managed nodes.
+
+> now configure /etc/hosts for name resolution of managed nodes
 
 Configure tab spacing for yaml on vim (optional)
 ```shell
