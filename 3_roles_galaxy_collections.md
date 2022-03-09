@@ -41,16 +41,17 @@ Ansible Galaxy Roles
 ansible-galaxy search <search_term> --author --platforms EL --galaxy-tags
 
 # install/remove galaxy role
-ansible-galaxy install <role.name>
+ansible-galaxy install <role.name>,<optional_version>
 ansible-galaxy remove <role.name>
 ```
 ```shell
 # build custom role
 ansible-galaxy init <name>
-
-# be mindful of role precedence when roles are called from master playbook
+```
+Role Precedence
+```shell
     ./roles <-- project roles
-    ~/.ansilbe/roles <-- current profile roles (preferred location)
+    ~/.ansible/roles <-- default location for galaxy installed roles, put custom roles here if used in multiple projects
     /etc/ansible/roles
     /usr/share/ansible/roles
 ```
