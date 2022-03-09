@@ -10,7 +10,7 @@ project_dir/
           main.yml <-- default vars that may be overwritten
         files/
           file.txt
-          foo.sh
+          file.sh
         meta/
           main.yml <-- role information and dependencies
         vars/
@@ -20,14 +20,13 @@ project_dir/
         handlers/
           main.yml <-- role handlers
         templates/
-          httpd.conf.j2 <-- jinja2 templates
-          smb.conf.j2
+          file.conf.j2 <-- jinja2 templates
           
     group_vars/
       group1.yml <-- vars applied to group1
       group2.yml
       all
-        vault.yml <-- vars applied to all groups
+        vault.yml <-- vars applied to all groups (encrypted with vault)
     host_vars
       host1.yml <-- vars applied to host1
       host2.yml
