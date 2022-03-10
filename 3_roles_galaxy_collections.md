@@ -120,8 +120,8 @@ RHEL System Roles
 # install 
 yum install -y rhel-system-roles
 ```
-> system roles default location /usr/share/ansible/roles/
-> role directories contain example files
+> default install location /usr/share/ansible/roles/<br>
+> example files
 ```shell
 # SELinux system role
 cd /
