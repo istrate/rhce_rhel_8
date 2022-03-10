@@ -1,5 +1,5 @@
 # Ansible Projects and Roles
-## Project and Role Directory Structure, Ansible Galaxy, Collections, Requirements, RHEL System Roles
+## Project and Role Directory Structure, Ansible Galaxy, Collections, Dependencies, Requirements, RHEL System Roles
 
 Example Project Directory Structure
 ```shell
