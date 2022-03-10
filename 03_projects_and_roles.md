@@ -26,9 +26,9 @@ project_dir/
     group_vars/
       group1.yml <-- vars applied to group1
       group2.yml
-      all
+      all/
         vault.yml <-- vars applied to all groups (encrypted with vault)
-    host_vars
+    host_vars/
       host1.yml <-- vars applied to host1
       host2.yml
 
@@ -50,10 +50,10 @@ ansible-galaxy init <name>
 ```
 Role Precedence
 ```shell
-    ./roles <-- project roles
-    ~/.ansible/roles <-- default location for galaxy installed roles, put custom roles here if used in multiple projects
-    /etc/ansible/roles
-    /usr/share/ansible/roles <-- default location for rhel system roles
+./roles <-- project roles
+~/.ansible/roles <-- default location for galaxy installed roles, put custom roles here if used in multiple projects
+/etc/ansible/roles
+/usr/share/ansible/roles <-- default location for rhel system roles
 ```
 Requirements
 ```shell
