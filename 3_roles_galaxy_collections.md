@@ -52,7 +52,7 @@ Role Precedence
     ./roles <-- project roles
     ~/.ansible/roles <-- default location for galaxy installed roles, put custom roles here if used in multiple projects
     /etc/ansible/roles
-    /usr/share/ansible/roles
+    /usr/share/ansible/roles <-- default location for rhel system roles
 ```
 Requirements
 ```shell
