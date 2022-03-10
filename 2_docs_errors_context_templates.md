@@ -47,6 +47,7 @@ force_handlers: yes #forces a notified handler to run even if another task fails
 ```
 Error Handling
 ```shell
+# basic
 ignore_errors: yes
 failed_when: <conditional>
 ```
