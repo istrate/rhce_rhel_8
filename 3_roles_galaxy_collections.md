@@ -120,11 +120,14 @@ RHEL System Roles
 # install 
 yum install -y rhel-system-roles
 ```
-> default install location /usr/share/ansible/roles/<br>
+> default install location /usr/share/ansible/roles/
 > documentation and example files in /usr/share/doc/rhel-system-roles/<role>
 ```shell
 # tip: copy example file to project dir and modify
 cp /usr/share/doc/rhel-system-roles/selinx/example-selinux-playbook.yml ~/<project_dir>
+```
+```shell
+# tip: define role required vars in group_vars
+~/<project_dir>/group_vars/all/selinux_vars.yml
 
-# tip: define role required vars in ~/<project_dir>/group_vars/all/<rolevars>.yml
 ```
