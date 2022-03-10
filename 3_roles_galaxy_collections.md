@@ -127,7 +127,7 @@ yum install -y rhel-system-roles
 cp /usr/share/doc/rhel-system-roles/selinx/example-selinux-playbook.yml ~/<project_dir>
 ```
 ```shell
-# tip: define role required vars in group_vars
+# tip: define role vars in group_vars or host_vars
 ~/<project_dir>/group_vars/all/selinux_vars.yml
 ---
 selinux_policy: targeted
