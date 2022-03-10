@@ -115,3 +115,13 @@ ansible-galaxy collection install -r requirements.yml
     selinux:
 ...etc...
 ```
+RHEL System Roles
+```shell
+# install 
+yum install -y rhel-system-roles
+```
+< system roles default location /usr/share/ansible/roles/
+< role directories contain example files
+```shell
+# SELinux system role
+cd /
