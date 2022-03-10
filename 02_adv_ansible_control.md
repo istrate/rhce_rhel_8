@@ -1,5 +1,5 @@
 # Advanced Ansible Control
-## Documentation, Vault, Local Facts, Handlers, Errors, SELinx Context, Templates
+## Documentation, Vault, Local Facts, Handlers, Errors, SELinx Context, Jinja2 Templates
 
 Adhoc Syntax
 ```shell
