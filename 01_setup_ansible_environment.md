@@ -1,4 +1,4 @@
-# Set Up Managed Environment
+# Set Up An Ansible Managed Environment
 
 All actions are carried out on the control node.<br>
 There should be no need to access a console on any managed node unless root password in unknown.
