@@ -63,6 +63,8 @@ ansible all --list-hosts
 ```
 Write and run playbook to set up managed nodes
 ```shell
+# assuming I have root access and managed nodes are connected to a working repo I would write something like this.
+
 ~/setup_managed_nodes.yml
 
 ---
@@ -78,7 +80,7 @@ Write and run playbook to set up managed nodes
 ```
 ```shell
 # run playbook
-ansible-playbook -u root --ask-pass setup_managed_nodes.yml
+ansible-playbook setup_managed_nodes.yml -u root -k
 ```
 Generate SSH keys and copy key to managed nodes
 ```shell
