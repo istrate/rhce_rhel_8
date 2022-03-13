@@ -94,11 +94,21 @@ ansible all -a "ls -lZ /tmp/testdir"
 ```
 Jinja2 Templates and Control Structures
 ```shell
-# control structure helps build an /etc/hosts jinja2 template from all hosts in inventory
+# control structure (for loop) helps build an /etc/hosts jinja2 template from all hosts in inventory
 
 {% for host in groups['all'] %}
 {{ ansible_default_ipv4.address }} {{ ansible_fqdn }} {{ ansible_hostname }}
 {% endfor %}
+```
+```shell
+# control structure (if statement) on variable logrotate_compress
+
+{% if logrotate_compress %}
+# Logs compressed
+compress
+{% else %}
+# Logs not compressed
+{% endif %}
 ```
 > N.B. Use ansible_managed = "Managed by Ansible" as a variable in ansible.cfg and include the variable {{ansible_managed}} in a template to inform users the file is managed by ansible.
 
