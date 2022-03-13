@@ -14,7 +14,9 @@ su - ansible
 ```
 Install Ansible
 ```shell
-# with pip
+# upgrade pip
+pip3 install -U pip --user
+# install ansible
 pip3 install ansible --user
 
 # with subscription-manager
