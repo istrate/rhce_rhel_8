@@ -73,8 +73,9 @@ Write and run playbook to set up managed nodes
   gather_facts: no
   tasks:
   - raw: |
-      useradd ansible;
-      echo -e "ansible\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/ansible;
+      useradd <user>;
+      echo <password> | passwd --stdin <user>
+      echo -e "<user>\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/<user>;
       yum install -y python3;
       alternatives --set python /usr/bin/python3
 ```
