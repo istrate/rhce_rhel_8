@@ -62,7 +62,7 @@ Ansible Logging
 log_path = ~/ansible.log
 ```
 ```shell
-# consider using log rotation
+# and consider using log rotation
 ~/etc/logrotation.d/ansible
 
 /home/ansible/ansible.log {
@@ -72,4 +72,46 @@ log_path = ~/ansible.log
   compress
   dateext
 }
+```
+Troubleshooting: stat and assert
+```shell
+# example playbook using stat and assert modules
+---
+- name: stat assert example
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+  - name: get stats on /etc/hosts
+    stat:
+      path: /etc/hosts
+    register: result
+
+  - debug:
+      var: result
+      verbosity: 1
+
+  - name: test /etc/hosts mode
+    assert:
+      that: result.stat.mode == "0644"
+      success_msg: "file mode is correct"
+      fail_msg: "file mode is incorrect"
+    ignore_errors: yes
+```
+Troubleshooting: uri module
+```shell
+# example playbook using uri module to test http connection to web server
+
+---
+- name: uri example
+  hosts: ansnode1
+  gather_facts: yes
+  tasks:
+    - name: test web server
+      uri:
+        url: "http://{{ansible_fqdn}}/index.html"
+      register: result
+
+    - debug:
+        var: result
 ```
