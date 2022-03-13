@@ -1,5 +1,5 @@
 # Inventories and Troubleshooting
-##Inventory yaml/ini format, Host wildcard syntax, Parallelism, Ansible Logs, Useful Troubleshooting modules
+## Inventory yaml/ini format, Host wildcard syntax, Parallelism, Ansible Logs, Useful Troubleshooting modules
 Can have multiple inventory files in a directory as the source
 ```shell
 ~/ansible.cfg
