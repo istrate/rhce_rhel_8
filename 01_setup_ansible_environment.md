@@ -94,11 +94,12 @@ ansible-playbook setup_managed_nodes.yml -u root -k
 # an alternative to using the raw module in the above playbook would be to use the script module
   tasks:
   - script: setup_nodes.sh {{username}} {{userpass}}
-  ignore_errors: yes
+    ignore_errors: yes
 ```
 ```shell
+~/setup_nodes.sh
+
 #!/bin/bash
-# an example script to setup a new node
 useradd $1
 echo $2 | passwd --stdin $1
 echo -e "$1\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/$1
