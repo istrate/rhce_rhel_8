@@ -56,3 +56,20 @@ order: sorted    <- determin order in which hosts are processed (sorted,reverse_
 run_once: true   <- only run task against first host or use in conjuction with delegate_to:
 delegate_to: localhost  <- task is delegated to run on localhost
 ```
+Ansible Logging
+```shell
+# in ansible.cfg add variable
+log_path = ~/ansible.log
+```
+```shell
+# consider using log rotation
+~/etc/logrotation.d/ansible
+
+/home/ansible/ansible.log {
+  weekly
+  rotate 4
+  create
+  compress
+  dateext
+}
+```
