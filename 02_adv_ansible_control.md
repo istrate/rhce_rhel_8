@@ -3,7 +3,7 @@
 
 Adhoc Syntax
 ```shell
-ansible -i <inventory> <group/host> -m <module> -a "<arguments>" -u <user> --ask-pass --check
+ansible -i <inventory> <group/host> -m <module> -a "<arguments>" -u <user> -k <ask-pass>
 ```
 Documentation
 ```shell
