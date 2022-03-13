@@ -71,17 +71,39 @@ Write and run playbook to set up managed nodes
 - name: setup managed nodes
   hosts: all
   gather_facts: no
+  vars_prompt:
+  - name: username
+    prompt: new user name
+    private: no
+  - name: userpass
+    prompt: new user password
+    private: yes
   tasks:
   - raw: |
-      useradd <user>;
-      echo <password> | passwd --stdin <user>
-      echo -e "<user>\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/<user>;
+      useradd {{username}};
+      echo {{userpass}} | passwd --stdin {{username}}
+      echo -e "{{username}}\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/{{username}};
       yum install -y python3;
       alternatives --set python /usr/bin/python3
 ```
 ```shell
 # run playbook
 ansible-playbook setup_managed_nodes.yml -u root -k
+```
+```shell
+# an alternative to using the raw module in the above playbook would be to use the script module
+  tasks:
+  - script: setup_nodes.sh {{username}} {{userpass}}
+  ignore_errors: yes
+```
+```shell
+#!/bin/bash
+# an example script to setup a new node
+useradd $1
+echo $2 | passwd --stdin $1
+echo -e "$1\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/$1
+yum install -y python3
+alternatives --set python /usr/bin/python3
 ```
 Generate SSH keys and copy key to managed nodes
 ```shell
