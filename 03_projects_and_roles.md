@@ -56,7 +56,7 @@ Role Precedence
 /usr/share/ansible/roles <-- default location for rhel system roles
 ```
 Requirements
-```shell
+```yaml
 requirements.yml
 
 ---
@@ -72,7 +72,7 @@ requirements.yml
 ansible-galaxy install -r requirements.yml -p <install_path>
 ```
 Dependencies
-```shell
+```yaml
 # role dependencies defined in ./meta/main.yml in same format as requirements
 ---
 dependencies
@@ -85,7 +85,7 @@ galaxy_info:
 ...etc...
 ```
 Collections
-```shell
+```yaml
 # can be defined in same requirements.yml file as roles.
 ---
 roles:
@@ -102,7 +102,7 @@ collections:
 # to install collections from requirements.yml
 ansible-galaxy collection install -r requirements.yml
 ```
-```shell
+```yaml
 # include installed collections in playbook header as required
 
 ---
