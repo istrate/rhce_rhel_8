@@ -2,7 +2,7 @@
 ## Project and Role Directory Structure, Ansible Galaxy, Collections, Dependencies, Requirements, RHEL System Roles
 
 Example Project Directory Structure
-```shell
+```yaml
 project_dir/
     roles/
       role1/
@@ -75,9 +75,9 @@ Dependencies
 ```yaml
 # role dependencies defined in ./meta/main.yml in same format as requirements
 ---
-dependencies
+dependencies:
 - src: geerlingguy.nginx
-- src: ile:///opt/local/roles/myrole.tar
+- src: file:///opt/local/roles/myrole.tar
   name: myrole
   version: 1.0.0
 
@@ -127,7 +127,7 @@ yum install -y rhel-system-roles
 # tip: copy example file to project dir and modify
 cp /usr/share/doc/rhel-system-roles/selinx/example-selinux-playbook.yml ~/<project_dir>
 ```
-```shell
+```yaml
 # tip: define role vars in group_vars or host_vars
 ~/<project_dir>/group_vars/all/selinux_vars.yml
 ---
