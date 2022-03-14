@@ -1,10 +1,10 @@
 # Managing Software and Users
 
 ### Managing Software
-Useful software to install on control node:
-dnf-utils
-createrepo
-vsftpd
+Useful software to install on control node:<br>
+dnf-utils<br>
+createrepo<br>
+vsftpd<br>
 
 Userful modules for managing packages:
 package/yum/dnf:
