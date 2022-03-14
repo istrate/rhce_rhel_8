@@ -10,7 +10,7 @@ inventory = ~/inventory/
   /fileservers.yml
 ```
 Exmaple Inventory
-```shell
+```yaml
 # yaml format
 ---
 nodes:
@@ -22,7 +22,7 @@ nodes:
     node3.example.com:
       ansible_host: 10.0.0.167
 ```
-```shell
+```ini
 # ini format
 [nodes]
 node1.example.com ansible_host=10.0.0.164
@@ -74,7 +74,7 @@ log_path = ~/ansible.log
 }
 ```
 Troubleshooting: stat and assert
-```shell
+```yaml
 # example playbook using stat and assert modules
 ---
 - name: stat assert example
@@ -99,7 +99,7 @@ Troubleshooting: stat and assert
     ignore_errors: yes
 ```
 Troubleshooting: uri module
-```shell
+```yaml
 # example playbook using uri module to test http connection to web server
 
 ---
