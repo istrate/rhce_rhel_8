@@ -27,7 +27,7 @@ Ansible Vault
 vault-password-file: <path>
 ```
 Custom Local Facts (on managed node)
-```shell
+```ini
 /etc/ansible/facts.d/<name>.fact
 
 [fact_name]
@@ -47,26 +47,26 @@ force_handlers: yes #forces a notified handler to run even if another task fails
 - meta: flush_handlers #runs notified handlers before end of current play
 ```
 Error Handling
-```shell
+```yaml
 # basic
 ignore_errors: yes
 failed_when: <conditional>
 ```
-```shell
+```yaml
 # fail module example
 - name: print error message
   fail:
     msg: the task failed because.....
   when: "'condition' in registered_var.err"
 ```
-```shell
+```yaml
 # using blocks
 block:
 rescue:
 always:
 ```
 SELinux File Context
-```shell
+```yaml
 ~/sefcontext_example.yml
 
 ---
