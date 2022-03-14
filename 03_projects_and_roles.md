@@ -112,7 +112,7 @@ ansible-galaxy collection install -r requirements.yml
   collections:
   - ansible.posix
   tasks:
-  - name
+  - name: config selinux
     selinux:
 ...etc...
 ```
