@@ -35,7 +35,7 @@ Configure tab spacing on vim when editing yaml (optional)
 echo "autocmd FileType yaml setlocal ai ts=2 sw=2 et" > ~/.vimrc
 ```
 Customize ansible.cfg
-```shell
+```yaml
 ~/.ansible.cfg
 
 [defaults]
@@ -51,7 +51,7 @@ become_method = sudo
 become_ask_pass = false
 ```
 Customize default inventory
-```shell
+```ini
 ~/inventory
     
 [nodes]
@@ -64,7 +64,7 @@ node3.example.com
 ansible all --list-hosts
 ```
 Write and run playbook to set up managed nodes
-```shell
+```yaml
 # assuming I have root access and managed nodes are connected to a working repo I would write something like this.
 
 ~/setup_managed_nodes.yml
@@ -92,7 +92,7 @@ Write and run playbook to set up managed nodes
 # run playbook
 ansible-playbook setup_managed_nodes.yml -u root -k
 ```
-```shell
+```yaml
 # an alternative to using the raw module in the above playbook would be to use the script module
   tasks:
   - script: setup_nodes.sh {{username}} {{userpass}}
