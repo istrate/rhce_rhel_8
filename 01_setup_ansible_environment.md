@@ -35,7 +35,7 @@ Configure tab spacing on vim when editing yaml (optional)
 echo "autocmd FileType yaml setlocal ai ts=2 sw=2 et" > ~/.vimrc
 ```
 Customize ansible.cfg
-```yaml
+```conf
 ~/.ansible.cfg
 
 [defaults]
