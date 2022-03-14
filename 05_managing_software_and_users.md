@@ -6,23 +6,23 @@ dnf-utils<br>
 createrepo<br>
 vsftpd<br>
 
-Userful modules for managing packages:
-package/yum/dnf:
-yum_repository:
-package_facts:
-rpm_key
-redhat_subscription:
-rhn_register:
-rhn_channel:
+Userful modules for managing packages:<br>
+package/yum/dnf:<br>
+yum_repository:<br>
+package_facts:<br>
+rpm_key<br>
+redhat_subscription:<br>
+rhn_register:<br>
+rhn_channel:<br>
 
 ### Managing Users
-Useful modules for managing users:
-user:
-group:
-pamd:
-openssh_keypair:
-authorized_key:
-lineinfile
+Useful modules for managing users:<br>
+user:<br>
+group:<br>
+pamd:<br>
+openssh_keypair:<br>
+authorized_key:<br>
+lineinfile:<br>
 
 Create Encrypted Password
 ```shell
