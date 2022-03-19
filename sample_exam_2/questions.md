@@ -148,73 +148,67 @@ Create a playbook /home/automation/plays/apache.yml that uses the role and runs 
 Use Ansible Galaxy to download and install geerlingguy.haproxy role in /home/automation/plays/roles.
 
 Create a playbook /home/automation/plays/haproxy.yml that runs on servers in the proxy host group and does the following:
+- Use geerlingguy.haproxy role to load balance request between hosts in the webservers host group.
+- Use roundrobin load balancing method.
+- HAProxy backend servers should be configured for HTTP only (port 80).
+- Firewall is configured to allow all incoming traffic on port TCP 80.
 
-    Use geerlingguy.haproxy role to load balance request between hosts in the webservers host group.
-    Use roundrobin load balancing method.
-    HAProxy backend servers should be configured for HTTP only (port 80).
-    Firewall is configured to allow all incoming traffic on port TCP 80.
-
-If your playbook works, then doing “curl http://ansible2.hl.local/” should return output from the web server (see task #10). 
+If your playbook works, then doing “curl http://ansible2.hl.local/” should return output from the web server (see task #10).\
 Running the command again should return output from the other web server.
 
 ## Task 12: Security
 
 Create a playbook /home/automation/plays/selinux.yml that runs on hosts in the webservers host group and does the following:
 
-    Uses the selinux RHEL system role.
-    Enables httpd_can_network_connect SELinux boolean.
-    The change must survive system reboot.
+- Uses the selinux RHEL system role.
+- Enables httpd_can_network_connect SELinux boolean.
+- The change must survive system reboot.
 
 ## Task 13: Use Conditionals to Control Play Execution
 
 Create a playbook /home/automation/plays/sysctl.yml that runs on all inventory hosts and does the following:
-
-    If a server has more than 2048MB of RAM, then parameter vm.swappiness is set to 10.
-    If a server has less than 2048MB of RAM, then the following error message is displayed:
-
+- If a server has more than 2048MB of RAM, then parameter vm.swappiness is set to 10.
+- If a server has less than 2048MB of RAM, then the following error message is displayed:
+```shell
 Server memory less than 2048MB
-
+```
 ## Task 14: Use Archiving
 
 Create a playbook /home/automation/plays/archive.yml that runs on hosts in the database host group and does the following:
-
-    A file /mnt/mysql_backups/database_list.txt is created that contains the following line: dev,test,qa,prod.
-    A gzip archive of the file /mnt/mysql_backups/database_list.txt is created and stored in /mnt/mysql_backups/archive.gz.
+- A file /mnt/mysql_backups/database_list.txt is created that contains the following line: dev,test,qa,prod.
+- A gzip archive of the file /mnt/mysql_backups/database_list.txt is created and stored in /mnt/mysql_backups/archive.gz.
 
 ## Task 15: Work with Ansible Facts
 
 Create a playbook /home/automation/plays/facts.yml that runs on hosts in the database host group and does the following:
-
-    A custom Ansible fact server_role=mysql is created that can be retrieved from ansible_local.custom.sample_exam when using Ansible setup module.
+- A custom Ansible fact server_role=mysql is created that can be retrieved from ansible_local.custom.sample_exam when using Ansible setup module.
 
 ## Task 16: Software Packages
 
 Create a playbook /home/automation/plays/packages.yml that runs on all inventory hosts and does the following:
-
-    Installs tcpdump and mailx packages on hosts in the proxy host groups.
-    Installs lsof and mailx packages on hosts in the database host groups.
+- Installs tcpdump and mailx packages on hosts in the proxy host groups.
+- Installs lsof and mailx packages on hosts in the database host groups.
 
 ## Task 17: Services
 
 Create a playbook /home/automation/plays/target.yml that runs on hosts in the webservers host group and does the following:
-
-    Sets the default boot target to multi-user.
+- Sets the default boot target to multi-user.
 
 ## Task 18. Create and Use Templates to Create Customised Configuration Files
 
 Create a playbook /home/automation/plays/server_list.yml that does the following:
 
-    Playbook uses a Jinja2 template server_list.j2 to create a file /etc/server_list.txt on hosts in the database host group.
-    The file /etc/server_list.txt is owned by the automation user.
-    File permissions are set to 0600.
-    SELinux file label should be set to net_conf_t.
-    The content of the file is a list of FQDNs of all inventory hosts.
+- Playbook uses a Jinja2 template server_list.j2 to create a file /etc/server_list.txt on hosts in the database host group.
+- The file /etc/server_list.txt is owned by the automation user.
+- File permissions are set to 0600.
+- SELinux file label should be set to net_conf_t.
+- The content of the file is a list of FQDNs of all inventory hosts.
 
 After running the playbook, the content of the file /etc/server_list.txt should be the following:
-
+```txt
 ansible2.hl.local
 ansible3.hl.local
 ansible4.hl.local
 ansible5.hl.local
-
+```
 Note: if the FQDN of any inventory host changes, re-running the playbook should update the file with the new val
