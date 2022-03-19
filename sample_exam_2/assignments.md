@@ -36,12 +36,16 @@ Note: you have root access to all five servers.
 
 Install ansible package on the control node (including any dependencies) and configure the following:
 
-    Create a regular user automation with the password of devops. Use this user for all sample exam tasks and playbooks, unless you are working on the task #2 that requires creating the automation user on inventory hosts. You have root access to all five servers.
+    Create a regular user automation with the password of devops.
+    Use this user for all sample exam tasks and playbooks,
+    unless you are working on the task #2 that requires creating the automation user on inventory hosts.
+    You have root access to all five servers.
     All playbooks and other Ansible configuration that you create for this sample exam should be stored in /home/automation/plays.
 
 Create a configuration file /home/automation/plays/ansible.cfg to meet the following requirements:
 
-    The roles path should include /home/automation/plays/roles, as well as any other path that may be required for the course of the sample exam.
+    The roles path should include /home/automation/plays/roles,
+    as well as any other path that may be required for the course of the sample exam.
     The inventory file path is /home/automation/plays/inventory.
     Privilege escallation is disabled by default.
     Ansible should be able to manage 10 hosts at a single time.
@@ -197,7 +201,8 @@ Create a playbook /home/automation/plays/haproxy.yml that runs on servers in the
     HAProxy backend servers should be configured for HTTP only (port 80).
     Firewall is configured to allow all incoming traffic on port TCP 80.
 
-If your playbook works, then doing “curl http://ansible2.hl.local/” should return output from the web server (see task #10). Running the command again should return output from the other web server.
+If your playbook works, then doing “curl http://ansible2.hl.local/” should return output from the web server (see task #10). 
+Running the command again should return output from the other web server.
 
 ## Task 12: Security
 
