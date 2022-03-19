@@ -6,7 +6,7 @@
   tasks:
 
   - include_vars:
-      file: my_vault.yml
+      file: vars/my_vault.yml
 
   - name: create users
     user:
