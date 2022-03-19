@@ -86,37 +86,35 @@ After running the playbook, users should be able to SSH into their respective se
 ## Task 7: Scheduled Tasks
 
 Create a playbook /home/automation/plays/regular_tasks.yml that runs on servers in the proxy host group and does the following:
-
-    A root crontab record is created that runs every hour.
-    The cron job appends the file /var/log/time.log with the output from the date command.
+- A root crontab record is created that runs every hour.
+- The cron job appends the file /var/log/time.log with the output from the date command.
 
 ## Task 8: Software Repositories
 
 Create a playbook /home/automation/plays/repository.yml that runs on servers in the database host group and does the following:
-
-    A YUM repository file is created.
-    The name of the repository is mysql80-community.
-    The description of the repository is “MySQL 8.0 YUM Repo”.
-    Repository baseurl is http://repo.mysql.com/yum/mysql-8.0-community/el/8/x86_64/.
-    Repository GPG key is at http://repo.mysql.com/RPM-GPG-KEY-mysql.
-    Repository GPG check is enabled.
-    Repository is enabled.
+- A YUM repository file is created.
+- The name of the repository is mysql80-community.
+- The description of the repository is “MySQL 8.0 YUM Repo”.
+- Repository baseurl is http://repo.mysql.com/yum/mysql-8.0-community/el/8/x86_64/.
+- Repository GPG key is at http://repo.mysql.com/RPM-GPG-KEY-mysql.
+- Repository GPG check is enabled.
+- Repository is enabled.
 
 ## Task 9: Create and Work with Roles
 
 Create a role called sample-mysql and store it in /home/automation/plays/roles. The role should satisfy the following requirements:
 
-    A primary partition number 1 of size 800MB on device /dev/sdb is created.
-    An LVM volume group called vg_database is created that uses the primary partition created above.
-    An LVM logical volume called lv_mysql is created of size 512MB in the volume group vg_database.
-    An XFS filesystem on the logical volume lv_mysql is created.
-    Logical volume lv_mysql is permanently mounted on /mnt/mysql_backups.
-    mysql-community-server package is installed.
-    Firewall is configured to allow all incoming traffic on MySQL port TCP 3306.
-    MySQL root user password should be set from the variable database_password (see task #5).
-    MySQL server should be started and enabled on boot.
-    MySQL server configuration file is generated from the my.cnf.j2 Jinja2 template with the following content:
-
+- A primary partition number 1 of size 800MB on device /dev/sdb is created.
+- An LVM volume group called vg_database is created that uses the primary partition created above.
+- An LVM logical volume called lv_mysql is created of size 512MB in the volume group vg_database.
+- An XFS filesystem on the logical volume lv_mysql is created.
+- Logical volume lv_mysql is permanently mounted on /mnt/mysql_backups.
+- mysql-community-server package is installed.
+- Firewall is configured to allow all incoming traffic on MySQL port TCP 3306.
+- MySQL root user password should be set from the variable database_password (see task #5).
+- MySQL server should be started and enabled on boot.
+- MySQL server configuration file is generated from the my.cnf.j2 Jinja2 template with the following content:
+```conf
 [mysqld]
 bind_address = {{ ansible_default_ipv4.address }}
 skip_name_resolve
@@ -129,21 +127,19 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 [mysqld_safe]
 log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
-
+```
 Create a playbook /home/automation/plays/mysql.yml that uses the role and runs on hosts in the database host group.
 
 ## Task 10: Create and Work with Roles (Some More)
 
 Create a role called sample-apache and store it in /home/automation/plays/roles. The role should satisfy the following requirements:
 
-    The httpd, mod_ssl and php packages are installed. Apache service is running and enabled on boot.
-    Firewall is configured to allow all incoming traffic on HTTP port TCP 80 and HTTPS port TCP 443.
-    Apache service should be restarted every time the file /var/www/html/index.html is modified.
-    A Jinja2 template file index.html.j2 is used to create the file /var/www/html/index.html with the following content:
-
-The address of the server is: IPV4ADDRESS
-
-IPV4ADDRESS is the IP address of the managed node.
+- The httpd, mod_ssl and php packages are installed. Apache service is running and enabled on boot.
+- Firewall is configured to allow all incoming traffic on HTTP port TCP 80 and HTTPS port TCP 443.
+- Apache service should be restarted every time the file /var/www/html/index.html is modified.
+- A Jinja2 template file index.html.j2 is used to create the file /var/www/html/index.html with the following content:
+  - The address of the server is: IPV4ADDRESS
+  - IPV4ADDRESS is the IP address of the managed node.
 
 Create a playbook /home/automation/plays/apache.yml that uses the role and runs on hosts in the webservers host group.
 
