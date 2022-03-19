@@ -4,10 +4,11 @@
 ## Requirements
 
 There are 18 questions in total.\
-You will need five RHEL 8 virtual machines to be able to successfully complete all questions.
+You will need five RHEL 8 virtual machines to be able to successfully complete all questions.\
+One VM will be configured as an Ansible control node.\
+Other four VMs will be used to apply playbooks to solve the sample exam questions.\
 
-One VM will be configured as an Ansible control node. Other four VMs will be used to apply playbooks to solve the sample exam questions. The following FQDNs will be used throughout the sample exam.
-
+The following FQDNs will be used throughout the sample exam.\
 - ansible-control.hl.local – Ansible control node
 - ansible2.hl.local – managed host
 - ansible3.hl.local – managed host
