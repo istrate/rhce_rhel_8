@@ -8,7 +8,7 @@ You will need five RHEL 8 virtual machines to be able to successfully complete a
 One VM will be configured as an Ansible control node.\
 Other four VMs will be used to apply playbooks to solve the sample exam questions.\
 
-The following FQDNs will be used throughout the sample exam.\
+The following FQDNs will be used throughout the sample exam:
 - ansible-control.hl.local – Ansible control node
 - ansible2.hl.local – managed host
 - ansible3.hl.local – managed host
@@ -16,21 +16,17 @@ The following FQDNs will be used throughout the sample exam.\
 - ansible5.hl.local – managed host
 
 There are a couple of requirements that should be met before proceeding further:
-
 - ansible-control.hl.local server has passwordless SSH access to all managed servers (using the root user).
 - ansible5.hl.local server has a 1GB secondary /dev/sdb disk attached.
 - There are no regular users created on any of the servers.
 
 ### Tips and Suggestions
 
-I tried to cover as many exam objectives as possible, however, note that there will be no questions related to dynamic inventory.
+I tried to cover as many exam objectives as possible, however, note that there will be no questions related to dynamic inventory.\
+Some questions may depend on the outcome of others. Please read all questions before proceeding.\
+Note that the purpose of the sample exam is to test your skills. Please don’t post your playbooks in the comments section.\
 
-Some questions may depend on the outcome of others. Please read all questions before proceeding.
-
-Note that the purpose of the sample exam is to test your skills. Please don’t post your playbooks in the comments section.
-Sample Exam Questions
-
-Note: you have root access to all five servers.
+Note: you have root access to all five servers.\
 
 ## Task 1: Ansible Installation and Configuration
 
