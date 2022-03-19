@@ -20,14 +20,6 @@ There are a couple of requirements that should be met before proceeding further:
 - ansible5.hl.local server has a 1GB secondary /dev/sdb disk attached.
 - There are no regular users created on any of the servers.
 
-### Tips and Suggestions
-
-I tried to cover as many exam objectives as possible, however, note that there will be no questions related to dynamic inventory.\
-Some questions may depend on the outcome of others. Please read all questions before proceeding.\
-Note that the purpose of the sample exam is to test your skills. Please don’t post your playbooks in the comments section.\
-
-Note: you have root access to all five servers.\
-
 ## Task 1: Ansible Installation and Configuration
 
 Install ansible package on the control node (including any dependencies) and configure the following:
