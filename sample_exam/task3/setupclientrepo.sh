@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#ask for root password
+#put root password in variable to save entering password for each task
 read -sp 'root password?: ' pwd
 
 #remove existing repos
