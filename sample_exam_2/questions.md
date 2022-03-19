@@ -2,14 +2,12 @@
 ## Task 1: Ansible Installation and Configuration
 
 Install ansible package on the control node (including any dependencies) and configure the following:
-
 - Create a regular user automation with the password of devops.
 - Use this user for all sample exam tasks and playbooks, unless you are working on the task #2 that requires creating the automation user on inventory hosts.
 - You have root access to all five servers.
 - All playbooks and other Ansible configuration that you create for this sample exam should be stored in /home/automation/plays.
 
 Create a configuration file /home/automation/plays/ansible.cfg to meet the following requirements:
-
 - The roles path should include /home/automation/plays/roles, as well as any other path that may be required for the course of the sample exam.
 - The inventory file path is /home/automation/plays/inventory.
 - Privilege escallation is disabled by default.
@@ -17,7 +15,6 @@ Create a configuration file /home/automation/plays/ansible.cfg to meet the follo
 - Ansible should connect to all managed nodes using the automation user.
 
 Create an inventory file /home/automation/plays/inventory with the following:
-
 - ansible2.hl.local is a member of the proxy host group.
 - ansible3.hl.local is a member of the webservers host group.
 - ansible4.hl.local is a member of the webservers host group.
@@ -28,21 +25,19 @@ Create an inventory file /home/automation/plays/inventory with the following:
 Generate an SSH keypair on the control node. You can perform this step manually.
 
 Write a script /home/automation/plays/adhoc that uses Ansible ad-hoc commands to achieve the following:
-
-    User automation is created on all inventory hosts (not the control node).
-    SSH key (that you generated) is copied to all inventory hosts for the automation user and stored in /home/automation/.ssh/authorized_keys.
-    The automation user is allowed to elevate privileges on all inventory hosts without having to provide a password.
+- User automation is created on all inventory hosts (not the control node).
+- SSH key (that you generated) is copied to all inventory hosts for the automation user and stored in /home/automation/.ssh/authorized_keys.
+- The automation user is allowed to elevate privileges on all inventory hosts without having to provide a password.
 
 After running the adhoc script on the control node as the automation user, you should be able to SSH into all inventory hosts using the automation user without password, as well as a run all privileged commands.
 
 ## Task 3: File Content
 
 Create a playbook /home/automation/plays/motd.yml that runs on all inventory hosts and does the following:
-
-    The playbook should replace any existing content of /etc/motd with text. Text depends on the host group.
-    On hosts in the proxy host group the line should be “Welcome to HAProxy server”.
-    On hosts in the webservers host group the line should be “Welcome to Apache server”.
-    On hosts in the database host group the line should be “Welcome to MySQL server”.
+- The playbook should replace any existing content of /etc/motd with text. Text depends on the host group.
+- On hosts in the proxy host group the line should be “Welcome to HAProxy server”.
+- On hosts in the webservers host group the line should be “Welcome to Apache server”.
+- On hosts in the database host group the line should be “Welcome to MySQL server”.
 
 ## Task 4: Configure SSH Server
 
