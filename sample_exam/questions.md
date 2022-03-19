@@ -1,4 +1,4 @@
-# Sample Exam Assignments for RHCE
+# Sample Exam Questions for RHCE EX294
 
 ## Task 1: Setting up Inventory
 
