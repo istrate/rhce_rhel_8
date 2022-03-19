@@ -1,11 +1,7 @@
 
-Ansible Sample Exam for RHCE EX294 and EX407
-Posted on 07/05/2019 by Lisenet	
+# Ansible Sample Exam for RHCE EX294
 
-This is a sample Ansible exam that I’ve created to prepare for the new RHCE exam EX294.
-
-As with the real exam, no answers to the sample exam questions will be provided.
-Requirements
+## Requirements
 
 There are 18 questions in total.
 
@@ -19,13 +15,13 @@ One VM will be configured as an Ansible control node. Other four VMs will be use
     ansible4.hl.local – managed host
     ansible5.hl.local – managed host
 
-There are a couple of requiremens that should be met before proceeding further:
+There are a couple of requirements that should be met before proceeding further:
 
     ansible-control.hl.local server has passwordless SSH access to all managed servers (using the root user).
     ansible5.hl.local server has a 1GB secondary /dev/sdb disk attached.
     There are no regular users created on any of the servers.
 
-Tips and Suggestions
+### Tips and Suggestions
 
 I tried to cover as many exam objectives as possible, however, note that there will be no questions related to dynamic inventory.
 
@@ -35,7 +31,8 @@ Note that the purpose of the sample exam is to test your skills. Please don’t 
 Sample Exam Questions
 
 Note: you have root access to all five servers.
-Task 1: Ansible Installation and Configuration
+
+## Task 1: Ansible Installation and Configuration
 
 Install ansible package on the control node (including any dependencies) and configure the following:
 
@@ -57,7 +54,7 @@ Create an inventory file /home/automation/plays/inventory with the following:
     ansible4.hl.local is a member of the webservers host group.
     ansible5.hl.local is a member of the database host group.
 
-Task 2: Ad-Hoc Commands
+## Task 2: Ad-Hoc Commands
 
 Generate an SSH keypair on the control node. You can perform this step manually.
 
@@ -68,7 +65,8 @@ Write a script /home/automation/plays/adhoc that uses Ansible ad-hoc commands to
     The automation user is allowed to elevate privileges on all inventory hosts without having to provide a password.
 
 After running the adhoc script on the control node as the automation user, you should be able to SSH into all inventory hosts using the automation user without password, as well as a run all privileged commands.
-Task 3: File Content
+
+## Task 3: File Content
 
 Create a playbook /home/automation/plays/motd.yml that runs on all inventory hosts and does the following:
 
@@ -77,7 +75,7 @@ Create a playbook /home/automation/plays/motd.yml that runs on all inventory hos
     On hosts in the webservers host group the line should be “Welcome to Apache server”.
     On hosts in the database host group the line should be “Welcome to MySQL server”.
 
-Task 4: Configure SSH Server
+## Task 4: Configure SSH Server
 
 Create a playbook /home/automation/plays/sshd.yml that runs on all inventory hosts and configures SSHD daemon as follows:
 
@@ -85,7 +83,7 @@ Create a playbook /home/automation/plays/sshd.yml that runs on all inventory hos
     X11Forwarding is disabled
     MaxAuthTries is set to 3
 
-Task 5: Ansible Vault
+## Task 5: Ansible Vault
 
 Create Ansible vault file /home/automation/plays/secret.yml. Encryption/decryption password is devops.
 
@@ -95,7 +93,8 @@ Add the following variables to the vault:
     database_password with value of devops
 
 Store Ansible vault password in the file /home/automation/plays/vault_key.
-Task 6: Users and Groups
+
+## Task 6: Users and Groups
 
 You have been provided with the list of users below.
 
@@ -122,14 +121,15 @@ Create a playbook /home/automation/plays/users.yml that uses the vault file /hom
     Each user should have an SSH key uploaded (use the SSH key that you created previously, see task #2).
 
 After running the playbook, users should be able to SSH into their respective servers without passwords.
-Task 7: Scheduled Tasks
+
+## Task 7: Scheduled Tasks
 
 Create a playbook /home/automation/plays/regular_tasks.yml that runs on servers in the proxy host group and does the following:
 
     A root crontab record is created that runs every hour.
     The cron job appends the file /var/log/time.log with the output from the date command.
 
-Task 8: Software Repositories
+## Task 8: Software Repositories
 
 Create a playbook /home/automation/plays/repository.yml that runs on servers in the database host group and does the following:
 
@@ -141,7 +141,7 @@ Create a playbook /home/automation/plays/repository.yml that runs on servers in 
     Repository GPG check is enabled.
     Repository is enabled.
 
-Task 9: Create and Work with Roles
+## Task 9: Create and Work with Roles
 
 Create a role called sample-mysql and store it in /home/automation/plays/roles. The role should satisfy the following requirements:
 
@@ -170,7 +170,8 @@ log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
 
 Create a playbook /home/automation/plays/mysql.yml that uses the role and runs on hosts in the database host group.
-Task 10: Create and Work with Roles (Some More)
+
+## Task 10: Create and Work with Roles (Some More)
 
 Create a role called sample-apache and store it in /home/automation/plays/roles. The role should satisfy the following requirements:
 
@@ -184,7 +185,8 @@ The address of the server is: IPV4ADDRESS
 IPV4ADDRESS is the IP address of the managed node.
 
 Create a playbook /home/automation/plays/apache.yml that uses the role and runs on hosts in the webservers host group.
-Task 11: Download Roles From Ansible Galaxy and Use Them
+
+## Task 11: Download Roles From Ansible Galaxy and Use Them
 
 Use Ansible Galaxy to download and install geerlingguy.haproxy role in /home/automation/plays/roles.
 
@@ -196,7 +198,8 @@ Create a playbook /home/automation/plays/haproxy.yml that runs on servers in the
     Firewall is configured to allow all incoming traffic on port TCP 80.
 
 If your playbook works, then doing “curl http://ansible2.hl.local/” should return output from the web server (see task #10). Running the command again should return output from the other web server.
-Task 12: Security
+
+## Task 12: Security
 
 Create a playbook /home/automation/plays/selinux.yml that runs on hosts in the webservers host group and does the following:
 
@@ -204,7 +207,7 @@ Create a playbook /home/automation/plays/selinux.yml that runs on hosts in the w
     Enables httpd_can_network_connect SELinux boolean.
     The change must survive system reboot.
 
-Task 13: Use Conditionals to Control Play Execution
+## Task 13: Use Conditionals to Control Play Execution
 
 Create a playbook /home/automation/plays/sysctl.yml that runs on all inventory hosts and does the following:
 
@@ -212,33 +215,34 @@ Create a playbook /home/automation/plays/sysctl.yml that runs on all inventory h
     If a server has less than 2048MB of RAM, then the following error message is displayed:
 
 Server memory less than 2048MB
-Task 14: Use Archiving
+
+## Task 14: Use Archiving
 
 Create a playbook /home/automation/plays/archive.yml that runs on hosts in the database host group and does the following:
 
     A file /mnt/mysql_backups/database_list.txt is created that contains the following line: dev,test,qa,prod.
     A gzip archive of the file /mnt/mysql_backups/database_list.txt is created and stored in /mnt/mysql_backups/archive.gz.
 
-Task 15: Work with Ansible Facts
+## Task 15: Work with Ansible Facts
 
 Create a playbook /home/automation/plays/facts.yml that runs on hosts in the database host group and does the following:
 
     A custom Ansible fact server_role=mysql is created that can be retrieved from ansible_local.custom.sample_exam when using Ansible setup module.
 
-Task 16: Software Packages
+## Task 16: Software Packages
 
 Create a playbook /home/automation/plays/packages.yml that runs on all inventory hosts and does the following:
 
     Installs tcpdump and mailx packages on hosts in the proxy host groups.
     Installs lsof and mailx packages on hosts in the database host groups.
 
-Task 17: Services
+## Task 17: Services
 
 Create a playbook /home/automation/plays/target.yml that runs on hosts in the webservers host group and does the following:
 
     Sets the default boot target to multi-user.
 
-Task 18. Create and Use Templates to Create Customised Configuration Files
+## Task 18. Create and Use Templates to Create Customised Configuration Files
 
 Create a playbook /home/automation/plays/server_list.yml that does the following:
 
