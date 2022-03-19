@@ -7,6 +7,7 @@
   - name: install requirements
     shell: "ansible-galaxy install -r roles/requirements.yml -p roles"
     delegate_to: localhost
+    run_once: true
 
   roles:
     - geerlingguy.redis
