@@ -211,4 +211,4 @@ ansible3.hl.local
 ansible4.hl.local
 ansible5.hl.local
 ```
-Note: if the FQDN of any inventory host changes, re-running the playbook should update the file with the new val
+Note: if the FQDN of any inventory host changes, re-running the playbook should update the file with the new value
