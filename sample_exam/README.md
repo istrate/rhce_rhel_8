@@ -1,5 +1,5 @@
 # Sample Exam for RHCE EX294
-## taken from Sander von Vugt video course
+### taken from Sander von Vugt video course
 
 To work through this exam, you need a total of 5 servres, running RHEL 8 or CentOS 8.
 - One server needs to be configured as control host
