@@ -2,7 +2,7 @@
 ### taken from Sander von Vugt video course
 
 ## Basic Setup
-To work through this exam, you need a total of 5 servres, running RHEL 8 or CentOS 8.
+To work through this exam, you need a total of 5 servers running RHEL 8 or CentOS 8.
 - One server needs to be configured as control host
 - The other 4 servers are configured as managed servers, using the names:
   - ansible1.example.com
