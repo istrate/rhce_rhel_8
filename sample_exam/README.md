@@ -1,6 +1,7 @@
 # Sample Exam for RHCE EX294
 ### taken from Sander von Vugt video course
 
+## Basic Setup
 To work through this exam, you need a total of 5 servres, running RHEL 8 or CentOS 8.
 - One server needs to be configured as control host
 - The other 4 servers are configured as managed servers, using the names:
@@ -15,4 +16,5 @@ To work through this exam, you need a total of 5 servres, running RHEL 8 or Cent
   - 5 GB disk space on the secondary disk /dev/sdb (on ansible1 and ansible 3 only)
   - The root user account has been configured with the password 'password' on each server
   - The control server has a user account 'ansible'. SSH public and private keys have been generated for this user on control.example.com. No further configuration has been done yet.
+  - In the assignments in this exam, you'll need to create scripts and yaml files. Make sure that all of these scripts are stored in the directory /home/anisble.
  
