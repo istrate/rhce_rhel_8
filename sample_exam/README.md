@@ -3,7 +3,7 @@
 
 To work through this exam, you need a total of 5 servres, running RHEL 8 or CentOS 8.
 - One server needs to be configured as control host
-- The other 4 servers are configured as managed servers, using the names
+- The other 4 servers are configured as managed servers, using the names:
   - ansible1.example.com
   - ansible2.example.com
   - ansible3.example.com
@@ -15,5 +15,4 @@ To work through this exam, you need a total of 5 servres, running RHEL 8 or Cent
   - 5 GB disk space on the secondary disk /dev/sdb (on ansible1 and ansible 3 only)
   - The root user account has been configured with the password 'password' on each server
   - The control server has a user account 'ansible'. SSH public and private keys have been generated for this user on control.example.com. No further configuration has been done yet.
- 
  
