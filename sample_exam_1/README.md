@@ -9,7 +9,7 @@ To work through this exam, you need a total of 5 servers running RHEL 8 or CentO
   - ansible2.example.com
   - ansible3.example.com
   - ansible4.example.com
-- The IP addresses used on the managed servers are not important, youcan pick anything that matches your configurations
+- The IP addresses used on the managed servers are not important, you can pick anything that matches your configurations
 - Make sure the servres meet the following requirements:
   - 1 GB or RAM
   - 20 GB disk space on the primary disk /dev/sda
