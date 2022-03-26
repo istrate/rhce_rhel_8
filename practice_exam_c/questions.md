@@ -32,37 +32,40 @@
   - As the last command in this script, an ad-hoc command should be used to call the appropriate module to test connectivity to the remote hosts
 
 ## Practice Exam C Specific Tasks
-1. Write a playbook that detects storage devices and writes a report with device names to the file /tmp/devices.txt. This file should meet the following
-requirements:
-  a. Support must be offered for a diversity of storage device names, such as /dev/sda and /dev/vda.
-  b. For each host, the file should have the line “primary device DEVICENAME found on HOSTNAME,” where DEVICENAME is replaced with the actual name of the device and HOSTNAME is replaced with the actual name of
-the host.
-  c. If a second disk device is found, the file should have the line “second device DEVICENAME found on HOSTNAME.”
-  d. If no second disk device is found, the file should have the line “no seconddevice found on HOSTNAME.”
 
-2. Write a playbook that sets up storage and meets the following requirements:
-a. If a second disk is found, a volume group with the name vgfiles should be
-created. This volume group may use all available disk space.
-b. If no second disk is found, the playbook should print the line “no work to
-do” and fail further task execution on this host.
-c. An LVM logical volume with the name lvfiles and a size of 1 GB should be
-created.
-d. The LVM logical volume should be formatted with an XFS file system.
-e. The LVM logical volume should be persistently mounted on the directory
-/lvfiles.
+## Task 1:
 
-3. Write a playbook that generates a file with the name /tmp/hosts, based on dis-
-covered inventory information. The file must have the same format as the /etc/
-hosts file.
+- Write a playbook that detects storage devices and writes a report with device names to the file /tmp/devices.txt. This file should meet the following requirements:
+  - Support must be offered for a diversity of storage device names, such as /dev/sda and /dev/vda.
+  - For each host, the file should have the line “primary device DEVICENAME found on HOSTNAME,” where DEVICENAME is replaced with the actual name of the device and HOSTNAME is replaced with the actual name of the host.
+  - If a second disk device is found, the file should have the line “second device DEVICENAME found on HOSTNAME.”
+  - If no second disk device is found, the file should have the line “no seconddevice found on HOSTNAME.”
 
-4. Write a requirements file that installs the nginx role and the docker role
-created by geerlingguy and is available on galaxy.ansible.com.
+## Task 2:
 
-5. Write a playbook that installs, starts, and enables the httpd service. Ensure the
-httpd service is listening on port 88 and is accessible through the firewall. In
-the same playbook, write a play that tests access to the service and prints an
-error message if the service could not be accessed.
+- Write a playbook that sets up storage and meets the following requirements:
+  - If a second disk is found, a volume group with the name vgfiles should be created. This volume group may use all available disk space.
+  - If no second disk is found, the playbook should print the line “no work to do” and fail further task execution on this host.
+  - An LVM logical volume with the name lvfiles and a size of 1 GB should be created.
+  - The LVM logical volume should be formatted with an XFS file system.
+  - The LVM logical volume should be persistently mounted on the directory /lvfiles.
 
-6. Write a playbook that uses the RHEL system role to synchronize time on
-all managed servers. Ensure that time is synchronized with the pool.ntp.org
-servers.
+## Task 3:
+
+- Write a playbook that generates a file with the name /tmp/hosts, based on discovered inventory information.
+- The file must have the same format as the /etc/hosts file.
+
+## Task 4:
+
+- Write a requirements file that installs the nginx role and the docker role created by geerlingguy and is available on galaxy.ansible.com.
+
+## Task 5:
+
+- Write a playbook that installs, starts, and enables the httpd service.
+- Ensure the httpd service is listening on port 88 and is accessible through the firewall.
+- In the same playbook, write a play that tests access to the service and prints an error message if the service could not be accessed.
+
+## Task 6:
+
+- Write a playbook that uses the RHEL system role to synchronize time on all managed servers.
+- Ensure that time is synchronized with the pool.ntp.org servers.
